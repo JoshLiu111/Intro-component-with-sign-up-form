@@ -1,0 +1,174 @@
+/* Design tokens */
+:root {
+  --red-400: hsl(0, 100%, 74%);
+  --green-400: hsl(154, 59%, 51%);
+  --purple-700: hsl(248, 32%, 49%);
+  --gray-900: hsl(249, 10%, 26%);
+  --purple-350: hsl(246, 25%, 77%);
+  --shadow: 0 8px 0 rgba(0, 0, 0, 0.15);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; }
+[hidden] { display: none !important; }
+
+body {
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #fff;
+  background: var(--red-400) url(./images/bg-intro-mobile.png) center top / cover;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Layout: mobile = stacked */
+.layout {
+  display: grid;
+  gap: 4rem;
+  max-width: 69.5rem;
+  margin: 0 auto;
+  padding: 5.5rem 1.5rem 4.25rem;
+}
+
+.intro { text-align: center; }
+.intro h1 {
+  margin: 0 0 1rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+.intro p { margin: 0; line-height: 1.65; }
+
+/* Offer banner */
+.offer {
+  margin: 0 0 1.5rem;
+  padding: 1.1rem 4rem;
+  border-radius: 10px;
+  background: var(--purple-700);
+  box-shadow: var(--shadow);
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  text-align: center;
+}
+.offer strong { font-weight: 700; }
+
+/* Card */
+.card {
+  padding: 1.5rem;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: var(--shadow);
+  color: var(--gray-900);
+}
+
+#signup-form { display: grid; gap: 1rem; }
+
+.field { position: relative; }
+
+.field input {
+  width: 100%;
+  height: 3.5rem;
+  padding: 0 3.5rem 0 1.25rem;
+  border: 1px solid var(--purple-350);
+  border-radius: 5px;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  outline: none;
+}
+.field input::placeholder { color: hsl(249, 10%, 26%, 0.75); }
+.field input:hover,
+.field input:focus { border-color: var(--purple-700); }
+
+/* Error state: driven by aria-invalid on each input */
+.error-icon {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+}
+.error-msg {
+  margin: 0.4rem 0 0;
+  font-size: 0.6875rem;
+  font-style: italic;
+  font-weight: 500;
+  text-align: right;
+  color: var(--red-400);
+}
+.field input[aria-invalid="true"] {
+  border: 2px solid var(--red-400);
+  color: var(--red-400);
+}
+.field input[aria-invalid="true"]::placeholder { color: transparent; }
+.field input[aria-invalid="true"] ~ .error-icon { display: block; }
+
+.btn {
+  height: 3.5rem;
+  border: 0;
+  border-radius: 5px;
+  background: var(--green-400);
+  box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.09);
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.btn:hover,
+.btn:focus-visible { opacity: 0.7; }
+
+.success-msg {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--green-400);
+}
+
+.terms {
+  margin: -0.25rem 1rem 0;
+  font-size: 0.6875rem;
+  line-height: 1.9;
+  text-align: center;
+  color: var(--purple-350);
+}
+.terms a { font-weight: 700; color: var(--red-400); text-decoration: none; }
+.terms a:hover { text-decoration: underline; }
+
+.attribution { padding: 0 1rem 1.5rem; font-size: 0.6875rem; text-align: center; }
+.attribution a { color: #fff; }
+
+/* Desktop */
+@media (min-width: 60em) {
+  body { background-image: url(./images/bg-intro-desktop.png); }
+
+  .layout {
+    min-height: calc(100vh - 3rem);
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2.75rem;
+    padding: 4rem 2rem 2rem;
+  }
+
+  .intro { text-align: left; }
+  .intro h1 { font-size: 3.125rem; line-height: 1.1; }
+
+  .offer { padding: 1rem; }
+  .card { padding: 2.5rem; }
+  #signup-form { gap: 1.25rem; }
+  .field input { padding-left: 2rem; }
+  .terms { margin-top: -0.5rem; }
+}
