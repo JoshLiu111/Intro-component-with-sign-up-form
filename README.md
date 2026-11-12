@@ -34,8 +34,8 @@ I also added a password rule (at least 8 characters and one number) and a succes
 
 ### Links
 
-- Solution URL: [Frontend Mentor solution](TODO)
-- Live Site URL: [TODO](TODO)
+- Solution URL: [Frontend Mentor solution](https://www.frontendmentor.io/solutions/vanilla-javascript---rules-based-form-validation-with-aria-invalid-Cgu6ZaPgfc)
+- Live Site URL: [intro-component-with-sign-up-form-six-alpha.vercel.app](https://intro-component-with-sign-up-form-six-alpha.vercel.app/)
 
 ## My process
 
